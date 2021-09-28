@@ -5,7 +5,8 @@ set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set nu
-set nowrap
+set number relativenumber
+set wrap
 set smartcase
 set clipboard=unnamedplus
 set noswapfile
@@ -18,10 +19,20 @@ set wildignore=.git,*.o,*.out,*.so,*.swp,*.jpg,*.png,*.pdf
 " PLUGINS 
 call plug#begin('~/.vim/plugged')
 
+"Colorscheme
 Plug 'morhetz/gruvbox'
+"Minimalist editor for reading and/or writing text
+Plug 'junegunn/goyo.vim'
+"I dont know what this is
 Plug 'lyuts/vim-rtags'
+"For auto bracket completion
 Plug 'jiangmiao/auto-pairs'
+"Nice directory tree
 Plug 'scrooloose/nerdtree'
+"Complete html tags
+Plug 'sukima/xmledit'
+"Autocomplete
+Plug 'vim-scripts/AutoComplPop'
 
 call plug#end()
 
@@ -48,8 +59,11 @@ set background=dark
 hi normal ctermbg=NONE
 hi statusline cterm=NONE ctermbg=none ctermfg=white
 
+"AUTOCOMPLETE
+set completeopt=menuone
+
 " MAPPING ESC TO JJ
-imap jj <Esc> 
+imap jj <Esc>
  
 " REMAPS
 map <leader>g :tabc<cr>
@@ -68,10 +82,9 @@ nnoremap <C-s> :w<cr>
 nnoremap <Leader>b :NERDTreeToggle<cr>
 
 " ENABLE COPY/PASTE WITH Ctrl+C / Ctrl+V
-vnoremap <C-c> "+y
+"vnoremap <C-c> "+y
 "map      <C-p> "+P
 
 " COMPILING C++ PROGRAMS
-"nnoremap <Leader>c :!echo -e "\e[92m[Vim]\e[0m" && compiler %<cr>
 nnoremap <Leader>v :term compiler %<cr>
 
