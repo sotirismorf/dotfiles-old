@@ -23,11 +23,11 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
+primary = #ffffff
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
+[bar/monitor]
 override-redirect = true
 monitor = ${env:MONITOR:HDMI1}
 width = 2520
@@ -50,7 +50,65 @@ border-color = #101010
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
+module-margin-left = 0
+module-margin-right = 1
+
+;font-0 = fixed:pixelsize=15;1
+font-0 = notosansmono:pixelsize=15;1
+font-1 = "Font Awesome 5 Free:pixelsize=20:style=Regular;1"
+font-2 = "Font Awesome 5 Brands:pixelsize=20;1"
+font-3 = "Font Awesome 5 Free Solid:pixelsize=15;1"
+;font-1 = JoyPixels:style=Regular:scale=10;3
+;font-1 = unifont:fontformat=truetype:size=20:antialias=false;0
+;font-4 = siji:pixelsize=20;1
+
+modules-left = i3
+modules-center = xwindow
+modules-right = xbacklight pulseaudio xkeyboard memory cpu wlan eth battery date powermenu
+
+tray-position = left
+tray-padding = 2
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/laptop]
+override-redirect = true
+#monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:eDP1}
+width = 1880
+height = 40
+offset-x = 20
+;offset-y = 15
+;radius-top = 0
+;radius-bottom = 20
+;fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #101010
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 0
 module-margin-right = 1
 
 ;font-0 = fixed:pixelsize=15;1
@@ -62,7 +120,7 @@ font-1 = Font Awesome 5 Brands:pixelsize=15:antialias=false;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = xbacklight alsa xkeyboard memory cpu wlan eth battery date powermenu
+modules-right = xbacklight pulseaudio alsa xkeyboard memory cpu wlan eth battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -81,7 +139,6 @@ tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:50:...%
@@ -93,9 +150,9 @@ blacklist-0 = num lock
 
 format = <label-layout> <label-indicator>
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-;format-prefix-underline = ${colors.secondary}
+;format-prefix = 
+;format-prefix-foreground = #ffffff 
+;format-prefix-foreground = ${colors.foreground-alt}
 
 label-layout = %layout%
 ;label-layout-underline = ${colors.secondary}
@@ -192,7 +249,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = BL %percentage%%
 
 bar-width = 10
 bar-indicator = |
@@ -221,19 +278,19 @@ label = CPU %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #4bffdc
 label = MEMORY %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlo1
+interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-label-connected = %essid%
+;format-connected-underline = #9f78e1
+label-connected =%{A1:nm-connection-editor:}%essid%%{A} 
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -254,7 +311,7 @@ interface = eno1
 interval = 3.0
 
 ;format-connected-underline = #55aa55
-format-connected-prefix = " "
+;format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 ;label-connected = %local_ip%
 label-connected = ETHERNET
@@ -275,11 +332,26 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+;format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #0a6cf5
 
 label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; ; If not, uses default sink
+; sink = alsa_output.pci-0000_12_00.3.analog-stereo
+;
+; ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; ; Default: true
+use-ui-max = true
+;
+; ; Interval for volume increase/decrease (in percent points)
+; ; Default: 5
+; interval = 5
 
 [module/alsa]
 type = internal/alsa
@@ -331,32 +403,32 @@ poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
 label-charging = Charging %percentage%%
-;format-charging-underline = #ffb52a
+format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
 label-discharging = Discharging %percentage%%
 ;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 label-full = FULL BATTERY
-format-full-prefix-foreground = ${colors.foreground-alt}
-;format-full-underline = ${self.format-charging-underline}
+;format-full-prefix-foreground = ${colors.foreground-alt}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+;ramp-capacity-foreground = ${colors.foreground-alt}
+;ramp-capacity-foreground = #ffffff
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+;animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+;animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
 [module/temperature]

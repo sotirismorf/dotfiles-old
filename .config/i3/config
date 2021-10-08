@@ -2,6 +2,10 @@
 
 # Set the SUPER key as Mod
 set $mod Mod4
+set $left h
+set $right l
+set $down j
+set $up k 
 
 # Set font and size
 font pango:monospace 14
@@ -10,14 +14,17 @@ font pango:monospace 14
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # VOLUME CONTROLS
-bindsym XF86AudioRaiseVolume exec amixer set Master -q 5%+
-bindsym XF86AudioLowerVolume exec amixer set Master -q 5%-
-bindsym XF86AudioMute exec amixer set Master -q toggle
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -i 5 && volnoti-show $(pamixer --get-volume)"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -d 5 && volnoti-show $(pamixer --get-volume)"
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t && case $(pamixer --get-mute) in false) volnoti-show $(pamixer --get-volume) ;; true) volnoti-show -m ;; esac"
+
+# BACKLIGHT CONTROLS
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -28,13 +35,14 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 
+
 # Set border style
 default_border none
 
-# KEY MAPPINGS
-
 # drag and drop
 floating_modifier $mod
+
+bindsym $mod+m exec --no-startup-id ~/.local/bin/checkmonitor 
 
 # start a terminal
 bindsym $mod+Return exec alacritty 
@@ -42,35 +50,35 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
+# launch dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -143,22 +151,17 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
+		set $increment 1
+        bindsym j resize shrink width $increment px or $increment ppt
+        bindsym k resize grow height $increment px or $increment ppt
+        bindsym l resize shrink height $increment px or $increment ppt
+        bindsym semicolon resize grow width $increment px or $increment ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width $increment px or $increment ppt
+        bindsym Down resize grow height $increment px or $increment ppt
+        bindsym Up resize shrink height $increment px or $increment ppt
+        bindsym Right resize grow width $increment px or $increment ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -170,5 +173,6 @@ bindsym $mod+r mode "resize"
 
 # Start ups
 exec_always --no-startup-id $HOME/.fehbg
+exec_always --no-startup-id volnoti -t 2
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+export PATH="$HOME/.local/bin:$PATH"
+
 [[ $- != *i* ]] && return
 
 colors() {

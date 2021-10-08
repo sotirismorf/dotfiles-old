@@ -1,1 +1,11 @@
 .config/chromium
+.config/cmus
+.config/pulse
+.config/spotify
+.config/qBittorrent
+.config/Thunar
+.config/torbrowser
+.config/xfce4
+.config/termite
+
+!.config/cmus/rc
