@@ -4,8 +4,10 @@
 .config/spotify
 .config/qBittorrent
 .config/Thunar
+.config/dconf
 .config/torbrowser
 .config/xfce4
 .config/termite
+.config/qtile
 
 !.config/cmus/rc

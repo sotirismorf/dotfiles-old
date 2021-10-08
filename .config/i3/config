@@ -23,8 +23,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -d 5 && volnoti-show 
 bindsym XF86AudioMute exec --no-startup-id "pamixer -t && case $(pamixer --get-mute) in false) volnoti-show $(pamixer --get-volume) ;; true) volnoti-show -m ;; esac"
 
 # BACKLIGHT CONTROLS
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-statup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-statup-id xbacklight -dec 10
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -147,7 +147,6 @@ bindsym $mod+Shift+t exec --no-startup-id $HOME/.config/polybar/launch.sh
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
