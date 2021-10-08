@@ -1,0 +1,16 @@
+#!/bin/bash
+
+choices="laptop\ndual\nexternal"
+
+if xrandr | grep "HDMI1 connected"; then
+
+	chosen=$(echo -e $choices | dmenu -i -l 3)
+
+	case "$chosen" in
+		external) ~/.screenlayout/onlyexternal.sh ;;
+		laptop) ~/.screenlayout/onlyexternal.sh ;; 
+		dual) ~/.screenlayout/dualmonitors.sh ;; 
+	esac
+else
+	~/.screenlayout/onlylaptop.sh
+fi

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+choices="laptop\ndual\nexternal"
+chosen=$(echo -e $choices | dmenu -i)
+
+case "$chosen" in
+    external) ~/.screenlayout/onlyexternal.sh ;;
+    laptop) ~/.screenlayout/onlyexternal.sh ;; 
+    dual) ~/.screenlayout/dualmonitors.sh ;; 
+esac
+
