@@ -43,6 +43,8 @@ default_border none
 floating_modifier $mod
 
 bindsym $mod+m exec --no-startup-id ~/.local/bin/checkmonitor 
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+bindsym $mod+Shift+n exec --no-startup-id feh --bg-fill --randomize Pictures/wallpapers/
 
 # start a terminal
 bindsym $mod+Return exec alacritty 
@@ -167,8 +169,24 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+mode "opacity" {
+	bindsym 1 exec setop 1
+	bindsym 2 exec setop 2
+	bindsym 3 exec setop 3
+	bindsym 4 exec setop 4
+	bindsym 5 exec setop 5
+	bindsym 6 exec setop 6
+	bindsym 7 exec setop 7
+	bindsym 8 exec setop 8
+	bindsym 9 exec setop 9
+	bindsym 0 exec setop 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+Shift+o mode "opacity"
 
 # Start ups
 exec_always --no-startup-id $HOME/.fehbg

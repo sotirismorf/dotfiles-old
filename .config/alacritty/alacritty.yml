@@ -4,8 +4,8 @@
 colors:
   primary:
     # hard contrast background - '#1d2021'
-    #background:        &gruvbox_dark_bg '#282828'
-    background:        &gruvbox_dark_bg '#000000'
+    #background:        &gruvbox_dark_bg   '#282828'
+    background: &gruvbox_dark_bg '#000000'
     # soft contrast background - '#32302f'
     foreground:        '#ebdbb2'
     bright_foreground: '#fbf1c7'
@@ -48,7 +48,7 @@ colors:
     white:   '#928374'
 
 # Background opacity
-background_opacity: 0.0
+background_opacity: 0.7
   # indexed_colors: []
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
