@@ -1,13 +1,17 @@
+.config/QtProject.conf
+.config/Thunar
 .config/chromium
 .config/cmus
-.config/pulse
-.config/spotify
-.config/qBittorrent
-.config/Thunar
 .config/dconf
+.config/discord
+.config/mimeapps.list
+.config/pulse
+.config/qBittorrent
+.config/qpdfview
+.config/qtile
+.config/spotify
+.config/termite
 .config/torbrowser
 .config/xfce4
-.config/termite
-.config/qtile
 
 !.config/cmus/rc

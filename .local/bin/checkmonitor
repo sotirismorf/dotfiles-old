@@ -8,7 +8,7 @@ if xrandr | grep "HDMI1 connected"; then
 
 	case "$chosen" in
 		external) ~/.screenlayout/onlyexternal.sh ;;
-		laptop) ~/.screenlayout/onlyexternal.sh ;; 
+		laptop) ~/.screenlayout/onlylaptop.sh ;; 
 		dual) ~/.screenlayout/dualmonitors.sh ;; 
 	esac
 else

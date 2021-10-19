@@ -8,13 +8,13 @@ set $down j
 set $up k 
 
 # Set font and size
-font pango:monospace 14
+font pango:Noto Mono 14
+#font pango:monospace 14
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-#exec --no-startup-id nm-applet
 
 # VOLUME CONTROLS
 
@@ -23,8 +23,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -d 5 && volnoti-show 
 bindsym XF86AudioMute exec --no-startup-id "pamixer -t && case $(pamixer --get-mute) in false) volnoti-show $(pamixer --get-volume) ;; true) volnoti-show -m ;; esac"
 
 # BACKLIGHT CONTROLS
-bindsym XF86MonBrightnessUp exec --no-statup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-statup-id xbacklight -dec 10
+bindsym --release XF86MonBrightnessUp exec --no-startup-id "xbacklight +10"
+bindsym --release XF86MonBrightnessDown exec --no-startup-id "xbacklight -10"
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -47,7 +47,7 @@ bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 bindsym $mod+Shift+n exec --no-startup-id feh --bg-fill --randomize Pictures/wallpapers/
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -111,7 +111,7 @@ gaps inner 10
 gaps outer 0
 gaps left 5
 gaps right 5
-gaps top 40
+gaps top 35
 gaps bottom 5
 
 # Setting size for popups
@@ -190,6 +190,7 @@ bindsym $mod+Shift+o mode "opacity"
 
 # Start ups
 exec_always --no-startup-id $HOME/.fehbg
+exec_always --no-startup-id nm-applet
 exec_always --no-startup-id volnoti -t 2
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

@@ -30,13 +30,17 @@ Plug 'junegunn/goyo.vim'
 "I dont know what this is
 Plug 'lyuts/vim-rtags'
 "Color preview
-"Plug 'skammer/vim-css-color'
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
+
 "For auto bracket completion
 Plug 'jiangmiao/auto-pairs'
 "Nice directory tree
 Plug 'scrooloose/nerdtree'
 "Autocomplete
 Plug 'vim-scripts/AutoComplPop'
+"Color
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -56,6 +60,14 @@ hi statusline cterm=NONE ctermbg=NONE ctermfg=fg
 
 "AUTOCOMPLETE
 set completeopt=menuone
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_view_general_viewer = 'zathura'
+
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " MAPPING ESC TO JJ
 imap jj <Esc>
