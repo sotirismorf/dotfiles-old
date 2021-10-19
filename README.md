@@ -1,5 +1,9 @@
 # My Gnu plus Linux Configuration
 
+<p align="center">
+  <img src="Pictures/githubscreenshot1.png"> 
+</p>
+
 ## Features:
 
 - Window Manager: i3-gaps
