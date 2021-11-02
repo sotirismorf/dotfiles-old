@@ -93,8 +93,10 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
+for_window [class="Thunar"] floating enable 
+#for_window [class="Thunar"] floating enable && resize set 800 800
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+y floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -152,11 +154,11 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-		set $increment 1
-        bindsym j resize shrink width $increment px or $increment ppt
-        bindsym k resize grow height $increment px or $increment ppt
-        bindsym l resize shrink height $increment px or $increment ppt
-        bindsym semicolon resize grow width $increment px or $increment ppt
+		set $increment 4
+        bindsym $left resize shrink width $increment px or $increment ppt
+        bindsym $down resize grow height $increment px or $increment ppt
+        bindsym $up resize shrink height $increment px or $increment ppt
+        bindsym $right resize grow width $increment px or $increment ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width $increment px or $increment ppt
@@ -188,9 +190,13 @@ mode "opacity" {
 }
 bindsym $mod+Shift+o mode "opacity"
 
+exec_always --no-startup-id xset r rate 230 45
+exec_always --no-startup-id setxkbmap us,gr -option grp:alt_shift_toggle,grp_led:scroll
+
 # Start ups
 exec_always --no-startup-id $HOME/.fehbg
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id volnoti -t 2
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+

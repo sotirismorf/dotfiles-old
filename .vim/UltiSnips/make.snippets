@@ -1,0 +1,40 @@
+snippet ctemp "Makefile template for C" b
+CC = gcc
+CFLAGS = -I. -g -Wall
+LIBS =
+EXE = ../obj/executable
+
+SRC_DIR = .
+INC_DIR = .
+OBJ_DIR = ../obj
+
+## ADD ALL OBJECTS HERE ##
+_OBJ = $1
+
+## ADD ALL HEADER FILES HERE ##
+_DEPS = $2 
+
+OBJ = $(patsubst %,$(OBJ_DIR)/%,$(_OBJ))
+DEPS = $(patsubst %,$(INC_DIR)/%,$(_DEPS))
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+executable: $(OBJ) 
+	$(CC) -o $(EXE) $(OBJ) $(CFLAGS) $(LIBS)
+
+.PHONY : clean
+clean:
+	rm -f $(OBJ_DIR)/*.o $(EXE)
+
+# left  : target
+# right : what the target depends on
+# if a file on the right changes, the left object recompiles
+# $@ is a macro for what is on the left
+# $< is a macro for what is on the right
+#
+# with patsubst we can add the correct directory
+# for more info visit:
+# https://www.gnu.org/software/make/manual/make.html
+# https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/
+endsnippet

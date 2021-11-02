@@ -1,7 +1,28 @@
+
 global !p
 def math():
 	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 endglobal
+
+snippet template "Basic template" b
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+
+\title{$1}
+\author{}
+\date{$2}
+
+\begin{document}
+
+\maketitle
+
+\section{$3}
+
+\end{document}
+
+endsnippet
 
 context "math()"
 snippet '([A-Za-z])(\d)' "auto subscript" wrA

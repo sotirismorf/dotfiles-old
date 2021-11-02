@@ -14,3 +14,6 @@ if xrandr | grep "HDMI1 connected"; then
 else
 	~/.screenlayout/onlylaptop.sh
 fi
+
+~/.fehbg
+~/.config/polybar/launch.sh

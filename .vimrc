@@ -6,6 +6,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set nu
 set encoding=UTF-8
+set formatoptions-=cro
 set number
 set wrap
 set smartcase
@@ -21,6 +22,7 @@ set wildignore=.git,*.o,*.out,*.so,*.swp,*.jpg,*.png,*.pdf
 autocmd! bufwritepost .vimrc source %
 
 " PLUGINS 
+
 call plug#begin('~/.vim/plugged')
 
 "Colorscheme
@@ -39,6 +41,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 "Autocomplete
 Plug 'vim-scripts/AutoComplPop'
+"Plug 'ycm-core/YouCompleteMe'
 "Color
 Plug 'ap/vim-css-color'
 
@@ -59,7 +62,17 @@ hi statuslinenc cterm=NONE ctermbg=NONE ctermfg=fg
 hi statusline cterm=NONE ctermbg=NONE ctermfg=fg
 
 "AUTOCOMPLETE
+
+"  .: The current buffer
+"  w: Buffers in other windows
+"  b: Other loaded buffers
+"  u: Unloaded buffers
+"  t: Tags
+"  i: Included files
+
+let g:acp_completeOption = '.,w,b,u,k,t,i'
 set completeopt=menuone
+"set complete+=i
 
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -73,6 +86,11 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 imap jj <Esc>
 
 " REMAPS
+
+" Put quotes around word with " and ''
+vnoremap " di""<Esc>P
+nnoremap '' viwda''<Esc>P
+nnoremap " viwda""<Esc>P
 
 "Split navigation with control + H,J,K,L
 nnoremap <C-h> <C-w><C-h>
@@ -88,4 +106,5 @@ map <leader>n :bn<cr>
 nnoremap <Leader>b :NERDTreeToggle<cr>
 "Compile C++ single files
 nnoremap <Leader>v :term compiler %<cr>
+nnoremap <Leader>c :term compileandrun<cr>
 
