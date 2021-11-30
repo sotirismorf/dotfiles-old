@@ -6,25 +6,28 @@ import:
   #- ~/.config/alacritty/github.yml
 
 # Background opacity
-background_opacity: 0.9
+background_opacity: 0.8
   # indexed_colors: []
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Font configuration
 font:
   normal:
-    family: "Noto Sans Mono" 
+    family: Noto Sans Mono
+    #family: Liberation Mono
+    #family: monospace
+    #family: Andale Mono
     style: Regular
   bold:
-    family: "Noto Sans Mono"
+    family: Noto Sans Mono
     style: Bold
 
   italic:
-    family: "Noto Sans Mono"
+    family: Noto Sans Mono
     style: Italic
-            
+
   bold_italic:
-    family: "Noto Sans Mono"
+    family: Noto Sans Mono
     style: Bold Italic
 
   size: 12.0
@@ -58,9 +61,9 @@ window:
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  dimensions:
+    columns: 120
+    lines: 35
 
   # Window position (changes require restart)
   #
@@ -328,7 +331,7 @@ window:
 
 #cursor:
   # Cursor style
-  #style:
+  #style: Beam
     # Cursor shape
     #
     # Values for `shape`:

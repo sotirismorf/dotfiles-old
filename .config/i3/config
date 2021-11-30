@@ -34,6 +34,9 @@ set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
 
 
 # Set border style
@@ -192,6 +195,14 @@ bindsym $mod+Shift+o mode "opacity"
 
 exec_always --no-startup-id xset r rate 230 45
 exec_always --no-startup-id setxkbmap us,gr -option grp:alt_shift_toggle,grp_led:scroll
+
+#Setup TouchPad
+#To see all the available options:
+#	$ libinput list-devices
+#	$ xinput list-props "enter-the-device-name-here"
+exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.3
 
 # Start ups
 exec_always --no-startup-id $HOME/.fehbg

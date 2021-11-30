@@ -2,8 +2,16 @@ syntax on
 
 set nocompatible
 set noerrorbells
-set tabstop=4 softtabstop=4
+
+"command for switching spaces to tabs
+" :%s/^\(^I*\)␣␣␣␣/\1	/g
+" :%s/^\(^I*\)	/\1    /g
+set autoindent
+set noexpandtab
+set tabstop=4
+set softtabstop=4
 set shiftwidth=4
+
 set nu
 set encoding=UTF-8
 set formatoptions-=cro
@@ -12,6 +20,8 @@ set wrap
 set smartcase
 set clipboard=unnamedplus
 set noswapfile
+set mouse=a
+set list listchars=trail:·,tab:│\ ,precedes:-
 set nobackup
 set incsearch
 set showcmd
@@ -20,8 +30,13 @@ set wildignore=.git,*.o,*.out,*.so,*.swp,*.jpg,*.png,*.pdf
 
 "Automatically source .vimrc when saved
 autocmd! bufwritepost .vimrc source %
+autocmd BufWritePost ~/.suckless/dwmblocks/config.h !cd ~/.suckless/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
 
-" PLUGINS 
+augroup filetypedetect
+     au! BufRead,BufNewFile *.m setfiletype octave
+augroup END
+
+" PLUGINS
 
 call plug#begin('~/.vim/plugged')
 
@@ -82,21 +97,34 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
+
 " MAPPING ESC TO JJ
 imap jj <Esc>
+imap JJ <Esc>
 
 " REMAPS
+"Put quotes around word with " and ''
+vnoremap " s""<Esc>P
+vnoremap '' s''<Esc>P
+nnoremap '' ciw''<Esc>P
+nnoremap " ciw""<Esc>P
+" Remove quotes
+nnoremap d' diwhPl2x
 
-" Put quotes around word with " and ''
-vnoremap " di""<Esc>P
-nnoremap '' viwda''<Esc>P
-nnoremap " viwda""<Esc>P
+" Greek keymap with Control+(anguage)
+nnoremap <C-m> :set keymap=greek_utf-8<cr>
 
 "Split navigation with control + H,J,K,L
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k> 
 nnoremap <C-l> <C-w><C-l>
+
+
+
+"Keep text selected when shifting
+vnoremap < <gv
+vnoremap > >gv
 
 "Write with CTRL+S
 nnoremap <C-s> :w<cr>

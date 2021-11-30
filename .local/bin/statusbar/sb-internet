@@ -1,0 +1,27 @@
+#!/bin/bash
+
+wifi=$(cat /sys/class/net/w*/operstate)
+eth=$(cat /sys/class/net/e*/operstate)
+EDITOR=vim
+
+case $BLOCK_BUTTON in
+#1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
+	1) $TERMINAL -e nmtui;;
+	6) $TERMINAL -e $EDITOR $0;;
+esac
+
+printf " "
+
+if [ $eth == "up" ] && [ $wifi == "up"  ]
+then
+	printf "Connected (wifi,eth)"
+elif [ $wifi == "up" ]
+then
+	printf "Connected (wifi)"
+elif [ $eth == "up" ]
+then
+	printf "Connected (eth)"
+else
+	printf "No Internet"
+fi
+
