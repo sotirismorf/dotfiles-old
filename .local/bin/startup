@@ -1,0 +1,17 @@
+#!/bin/bash
+
+~/.fehbg
+picom &
+
+#Setup TouchPad
+#To see all the available options:
+#   $ libinput list-devices
+#   $ xinput list-props "enter-the-device-name-here"
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.3
+
+xset r rate 230 45
+setxkbmap us,gr -option grp:alt_shift_toggle,grp_led:scroll
+
+

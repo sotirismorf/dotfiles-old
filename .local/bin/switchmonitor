@@ -1,0 +1,12 @@
+#!/bin/bash
+
+choices="laptop\ndual\nexternal"
+
+if xrandr | grep "HDMI1 connected"; then
+/home/sotiris/.screenlayout/onlyexternal.sh
+else
+/home/sotiris/.screenlayout/onlylaptop.sh
+fi
+
+#~/.fehbg
+#~/.config/polybar/launch.sh

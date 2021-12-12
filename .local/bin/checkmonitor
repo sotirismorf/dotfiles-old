@@ -4,7 +4,7 @@ choices="laptop\ndual\nexternal"
 
 if xrandr | grep "HDMI1 connected"; then
 
-	chosen=$(echo -e $choices | dmenu -i -l 3)
+	chosen=$(echo -e $choices | dmenu -i)
 
 	case "$chosen" in
 		external) ~/.screenlayout/onlyexternal.sh ;;
@@ -16,4 +16,3 @@ else
 fi
 
 ~/.fehbg
-~/.config/polybar/launch.sh

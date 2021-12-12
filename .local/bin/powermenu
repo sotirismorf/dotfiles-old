@@ -1,0 +1,12 @@
+#!/bin/bash
+
+choices="Shutdown\nRestart\nSleep"
+chosen=$(echo -e $choices | dmenu -i)
+
+case "$chosen" in
+    Restart) exec systemctl reboot ;;
+    Shutdown) exec shutdown now ;; 
+	Sleep) exec systemctl suspend ;;
+    Exit) killall dwm ;; 
+esac
+
