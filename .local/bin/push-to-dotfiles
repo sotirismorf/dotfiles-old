@@ -1,0 +1,25 @@
+#!/bin/sh
+
+CONFIG="
+.config/alacritty
+.config/i3
+.config/picom
+.config/polybar
+.config/X11
+.config/zathura
+.config/chromium-flags.conf
+.config/mimeapps.list
+"
+LOCAL="
+.local/bin/
+"
+
+FLAGS="-av --progress --human-readable --delete"
+
+for FILE in $CONFIG
+do
+	rsync $FLAGS "$HOME/$FILE" "$HOME/dotfiles/.config"
+done
+
+rsync $FLAGS "$HOME/.local/bin" "$HOME/dotfiles/.local/"
+

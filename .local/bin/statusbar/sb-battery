@@ -40,7 +40,7 @@ for battery in /sys/class/power_supply/BAT?*; do
 	# Sets up the status and capacity
 	case "$(cat "$battery/status" 2>&1)" in
 		"Full") status="" ;;
-		"Discharging") status="🔋" ;;
+		"Discharging") status="" ;;
 		"Charging") status="" ;;
 		"Not charging") status="Battery not Charging" ;;
 		"Unknown") status="♻️" ;;

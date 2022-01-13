@@ -1,0 +1,28 @@
+[Added Associations]
+image/png=feh.desktop;
+image/jpeg=feh.desktop;
+application/pdf=chromium.desktop;org.pwmt.zathura.desktop;libreoffice-draw.desktop;org.pwmt.zathura-pdf-poppler.desktop;qpdfview.desktop;xpdf.desktop;
+text/plain=vim.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;userapp-alacritty -e nvim %f-29N4E1.desktop;
+text/markdown=userapp-alacritty -e nvim %f-29N4E1.desktop;userapp-alacritty -e %f-WJO4E1.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;vim.desktop;
+text/x-tex=vim.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-DZZDC1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-DZZDC1.desktop;
+application/zip=libreoffice-writer.desktop;
+application/epub+zip=chromium.desktop;
+image/svg+xml=userapp-alacritty -e vim %f-MBZKB1.desktop;vim.desktop;
+text/x-objcsrc=userapp-alacritty -e nvim %f-29N4E1.desktop;
+application/rtf=userapp-alacritty -e nvim %f-29N4E1.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;
+application/xml=userapp-alacritty -e nvim %f-29N4E1.desktop;
+
+[Default Applications]
+image/jpeg=feh.desktop
+text/plain=userapp-alacritty -e nvim %f-29N4E1.desktop
+text/x-tex=userapp-alacritty -e vim %f-MBZKB1.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-DZZDC1.desktop
+message/rfc822=userapp-Thunderbird-DZZDC1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-DZZDC1.desktop
+text/html=chromium.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
