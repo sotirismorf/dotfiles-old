@@ -22,6 +22,7 @@ case "$ext" in
 	c) cc "$file" -o "$base" && "$base" ;;
 	cpp) g++ "$file" -o "$base" && "$base" ;;
 	java) javac -d classes "$file" && java -cp classes "${1%.*}" ;;
+	js) node "$file" ;;
 	m) octave "$file" ;;
 	md) pandoc -t ms --highlight-style=kate -s -o "$base".pdf "$file" ;;
 	py) python "$file" ;;

@@ -10,17 +10,15 @@ case $BLOCK_BUTTON in
 	6) $TERMINAL -e $EDITOR $0;;
 esac
 
-printf " "
-
 if [ $eth == "up" ] && [ $wifi == "up"  ]
 then
-	printf "Connected (wifi,eth)"
+	printf " "
 elif [ $wifi == "up" ]
 then
-	printf "Connected (wifi)"
+	printf ""
 elif [ $eth == "up" ]
 then
-	printf "Connected (eth)"
+	printf ""
 else
 	printf "No Internet"
 fi
