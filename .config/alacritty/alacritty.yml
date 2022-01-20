@@ -6,33 +6,33 @@ import:
   #- ~/.config/alacritty/github.yml
 
 # Background opacity
-background_opacity: 0.8
+background_opacity: 0.9
   # indexed_colors: []
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Font configuration
 font:
   normal:
+    family: FiraCode Nerd Font
     #family: Noto Sans Mono
     #family: Liberation Mono
-    family: FiraCode Nerd Font
     #family: monospace
     #family: Andale Mono
     style: Regular
   bold:
+    family: FiraCode Nerd Font
     #family: Noto Sans Mono
     #family: Liberation Mono
-    family: FiraCode Nerd Font
     style: Bold
   italic:
+    family: FiraCode Nerd Font
     #family: Noto Sans Mono
     #family: Liberation Mono
-    family: FiraCode Nerd Font
     style: Italic
   bold_italic:
+    family: FiraCode Nerd Font
     #family: Noto Sans Mono
     #family: Liberation Mono
-    family: FiraCode Nerd Font
     style: Bold Italic
 
   size: 11.5
