@@ -23,4 +23,7 @@ done
 
 rsync $FLAGS "$HOME/.local/bin" "$HOME/dotfiles/.local/"
 
+cp $HOME/.bashrc $HOME/dotfiles/
+cp $HOME/.vimrc $HOME/dotfiles/
+
 git -C /home/$USER/dotfiles status

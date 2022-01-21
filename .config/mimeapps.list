@@ -13,6 +13,7 @@ image/svg+xml=userapp-alacritty -e vim %f-MBZKB1.desktop;vim.desktop;
 text/x-objcsrc=userapp-alacritty -e nvim %f-29N4E1.desktop;
 application/rtf=userapp-alacritty -e nvim %f-29N4E1.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;
 application/xml=userapp-alacritty -e nvim %f-29N4E1.desktop;
+text/x-csrc=userapp-alacritty -e nvim %f-29N4E1.desktop;
 
 [Default Applications]
 image/jpeg=feh.desktop
