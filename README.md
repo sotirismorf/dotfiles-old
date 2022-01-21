@@ -1,13 +1,13 @@
 # My Gnu plus Linux Configuration
 
 <p align="center">
-  <img src="Pictures/githubscreenshot1.png"> 
+  <img src="screenshot.png"> 
 </p>
 
 ## Features:
 
-- Window Manager: i3-gaps
-- Status Bar: polybar 
-- Compositor: picom
+- Window Manager: dwm
 - Terminal: alacritty
-- Text Editor: vim 
+- Compositor: picom
+- Status Bar: dwmblocks
+- Text Editor: neovim 
