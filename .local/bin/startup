@@ -1,10 +1,11 @@
 #!/bin/bash
 
-~/.fehbg
 
 if ! pgrep -x "picom" > /dev/null ; then
 	picom --experimental-backends &
 fi
+
+$HOME/.fehbg
 
 #Setup TouchPad
 #To see all the available options:
