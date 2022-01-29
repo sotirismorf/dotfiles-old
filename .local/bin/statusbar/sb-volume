@@ -3,7 +3,7 @@
 VOLUME=$(pamixer --get-volume)
 
 ICON=""
-ICON_INDEX=$(($VOLUME/30))
+ICON_INDEX=$(($VOLUME/40))
 
 case $(pamixer --get-mute) in
 	true) ICON="ﱝ"  ;;
@@ -12,6 +12,7 @@ case $(pamixer --get-mute) in
 			0) ICON="奄" ;;
 			1) ICON="奔" ;;
 			2) ICON="墳" ;;
+			3) ICON="墳" ;;
 			*) echo $ICON_INDEX;;
 		esac ;;
 	*) echo default
