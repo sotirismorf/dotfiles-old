@@ -7,13 +7,14 @@ text/markdown=userapp-alacritty -e nvim %f-29N4E1.desktop;userapp-alacritty -e %
 text/x-tex=vim.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-DZZDC1.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-DZZDC1.desktop;
-application/zip=libreoffice-writer.desktop;
+application/zip=org.gnome.FileRoller.desktop;libreoffice-writer.desktop;
 application/epub+zip=chromium.desktop;
 image/svg+xml=userapp-alacritty -e vim %f-MBZKB1.desktop;vim.desktop;
 text/x-objcsrc=userapp-alacritty -e nvim %f-29N4E1.desktop;
 application/rtf=userapp-alacritty -e nvim %f-29N4E1.desktop;userapp-alacritty -e vim %f-MBZKB1.desktop;
 application/xml=userapp-alacritty -e nvim %f-29N4E1.desktop;
 text/x-csrc=userapp-alacritty -e nvim %f-29N4E1.desktop;
+text/x-java=userapp-alacritty -e nvim %f-29N4E1.desktop;
 
 [Default Applications]
 image/jpeg=feh.desktop

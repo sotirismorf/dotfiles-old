@@ -12,6 +12,7 @@ export LC_CTYPE=en_US.UTF-8
 #shopt -s checkwinsize
 
 alias ls='ls --color=auto'
+alias diff='diff --color=auto'
 alias todo='nvim ~/.local/share/todo'
 alias vim='nvim'
 
@@ -64,3 +65,6 @@ extract () {
       	echo "'$1' is not a valid file"
    	fi
 } 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="~/.npm-global/bin:$PATH"
