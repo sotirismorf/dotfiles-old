@@ -11,6 +11,7 @@ Xft.rgba: rgb
 Xcursor.size: 14
 
 dmenu.font: FiraCode Nerd Font:size=11
+awesome.font: Roboto:size=30
 
 *.color0:  #282828
 *.color1:  #cc241d

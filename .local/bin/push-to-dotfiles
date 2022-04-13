@@ -3,6 +3,8 @@
 CONFIG="
 .config/alacritty
 .config/i3
+.config/bspwm
+.config/sxhkd
 .config/picom
 .config/polybar
 .config/X11
