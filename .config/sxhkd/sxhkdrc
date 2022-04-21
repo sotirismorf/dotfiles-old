@@ -48,6 +48,12 @@ super + shift + r
 super + {_,shift + }q
 	bspc node -{c,k}
 
+super + b
+	bspc config window_gap 0
+
+super + shift + b
+	bspc config window_gap 12
+
 # alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
