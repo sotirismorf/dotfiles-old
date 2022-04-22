@@ -4,6 +4,8 @@ CONFIG="
 .config/alacritty
 .config/i3
 .config/bspwm
+.config/sway
+.config/waybar
 .config/sxhkd
 .config/picom
 .config/polybar

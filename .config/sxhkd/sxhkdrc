@@ -32,6 +32,15 @@ super + m
 super + Escape
 	pkill -USR1 -x sxhkd
 
+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 3
+
+XF86AudioLowerVolume
+	pamixer --allow-boost -d 3
+
+XF86AudioMute
+	pamixer -t
+	
 #
 # bspwm hotkeys
 #
@@ -45,7 +54,7 @@ super + shift + r
 	killall polybar ; ~/.config/polybar/launch.sh
 
 # close and kill
-super + {_,shift + }q
+super + {_,shift + }@q
 	bspc node -{c,k}
 
 super + b
