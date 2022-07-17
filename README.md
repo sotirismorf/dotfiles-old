@@ -6,8 +6,7 @@
 
 ## Features:
 
-- Window Manager: dwm
+- Window Manager: sway
+- Status Bar: waybar
 - Terminal: alacritty
-- Compositor: picom
-- Status Bar: dwmblocks
 - Text Editor: neovim 

@@ -8,6 +8,7 @@
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/statusbar:$PATH"
 export LC_CTYPE=en_US.UTF-8
+export XDG_SCREENSHOTS_DIR="$HOME/pictures/screenshots/"
 
 #shopt -s checkwinsize
 

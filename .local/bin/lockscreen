@@ -1,7 +1,0 @@
-#!/bin/bash
-
-tmpbg='$HOME/Pictures/wallpapers/boat-lake.jpg'
-
-scrot "$tmpbg"
-convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
-i3lock -c 000000

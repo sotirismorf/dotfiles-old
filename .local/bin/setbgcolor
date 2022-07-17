@@ -1,5 +1,0 @@
-#!/bin/bash
-
-VALUE=${1:-5}
-
-#sed -i "s/dark_bg #******/dark_bg #$VALUE$VALUE$VALUE$VALUE$VALUE$VALUE'/" ~/.config/alacritty/alacritty.yml

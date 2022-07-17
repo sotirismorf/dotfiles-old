@@ -1,6 +1,0 @@
-#!/bin/bash
-
-file=$(sxiv -to $HOME/pictures/wallpapers)
-feh --bg-fill $file
-
-#echo $file
