@@ -7,8 +7,10 @@
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/statusbar:$PATH"
+
 export LC_CTYPE=en_US.UTF-8
 export XDG_SCREENSHOTS_DIR="$HOME/pictures/screenshots/"
+#export GIT_DIR="$HOME/.config/git"
 
 #shopt -s checkwinsize
 
@@ -16,6 +18,13 @@ alias ls='ls --color=auto'
 alias diff='diff --color=auto'
 alias todo='nvim ~/.local/share/todo'
 alias vim='nvim'
+
+source /usr/share/bash-completion/completions/git
+source /usr/share/bash-completion/completions/pacman
+source /usr/share/bash-completion/completions/nmcli
+source /usr/share/bash-completion/completions/systemctl
+source /usr/share/bash-completion/completions/sway
+source /usr/share/bash-completion/completions/chown
 
 c0='\[\e[01;30m\]'
 c1='\[\e[01;31m\]'
